@@ -6,19 +6,27 @@
 
 let email = document.getElementById("inputEmail");
 
-function invioDati () {
+function invioDati() {
     let emailValue = email.value;
 
-    let emailDatabase = ["francobaresi@mailinator.com" , "giovannimuciaccia@gmail.com","booleanduck@hotmail.it"];
+    let emailDatabase = ["francobaresi@mailinator.com", "giovannimuciaccia@gmail.com", "booleanduck@hotmail.it"];
 
 
-    for ( let i = 0; i < emailDatabase.length ; i++ ) 
-         if( emailDatabase[i] == emailValue ){
-            console.log( `${emailValue} è presente nella squadra, con posizione: ${i}` );
-         } else {
+    let checkEmail = false;
+
+    for (let i = 0; i < emailDatabase.length; i++) {
+        if (emailDatabase[i] == emailValue) {
+            let checkEmail = true;
+            console.log(`${emailValue} è presente nella squadra, con posizione: ${i}`);
+
+        } else {
             console.log('Congratulazioni hai appena registrato la tua email!');
-         }
+        }
+    }
 
+    if ( emailDatabase[i] != emailValue ) {
+        emailDatabase.push()
+    }
 }
 
 
@@ -30,19 +38,37 @@ function invioDati () {
 // scrivere quante partite ha vinto il giocatore
 // scrivere quante partite ha vinto il computer
 
+let playerWin = 0;
+let pcWin = 0;
 
-function startInput () {
+let winPlayer = document.getElementById("playerCount");
+let winPc = document.getElementById("pcCount");
+
+function startInput() {
+
+    // VARIABILI            
+
     let result = document.getElementById("resultOut");
-    let playerNumber = Math.floor(Math.random() * 7);
-    let pcNumber =  Math.floor(Math.random() * 7);
-                                            
-    if (playerNumber > pcNumber) {
-        result.innerHtml = `Hai vinto!`; 
+    let playerNumber = Math.floor(Math.random() * 6 + 1);
+    let pcNumber = Math.floor(Math.random() * 6 + 1);
 
-    } else if ( playerNumber == pcNumber) {
-        result.innerHtml = `Pareggio!`;
+    console.log(playerNumber);
+    console.log(pcNumber);
+
+    //Condizioni
+
+    if (playerNumber > pcNumber) {
+        result.innerHTML = `Hai vinto! il tuo numero è ${playerNumber}`;
+        playerWin = playerWin + 1;
+
+    } else if (playerNumber == pcNumber) {
+        result.innerHTML = `Pareggio! ${playerNumber} e ${pcNumber}! `;
     } else {
-        result.innerHtml = `Hai perso D: Riproviamo?`;
+        result.innerHTML = `Hai perso D: ho fatto ${pcNumber}, Riproviamo?`;
+        pcWin = pcWin + 1;
     }
+
+    winPlayer.innerHTML = `Vittorie: ${playerWin}`;
+    winPc.innerHTML = `Perdite: ${pcWin}`;
 
 }
