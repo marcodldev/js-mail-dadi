@@ -20,3 +20,29 @@ function invioDati () {
          }
 
 }
+
+
+
+
+// Gioco dei dadi
+// Generare un numero random da 1 a 6, sia per il giocatore sia per il computer.
+// Stabilire il vincitore, in base a chi fa il punteggio più alto.
+// scrivere quante partite ha vinto il giocatore
+// scrivere quante partite ha vinto il computer
+
+
+function startInput () {
+    let result = document.getElementById("resultOut");
+    let playerNumber = Math.floor(Math.random() * 7);
+    let pcNumber =  Math.floor(Math.random() * 7);
+                                            
+    if (playerNumber > pcNumber) {
+        result.innerHtml = `Hai vinto!`; 
+
+    } else if ( playerNumber == pcNumber) {
+        result.innerHtml = `Pareggio!`;
+    } else {
+        result.innerHtml = `Hai perso D: Riproviamo?`;
+    }
+
+}
