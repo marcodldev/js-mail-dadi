@@ -12,21 +12,33 @@ function invioDati() {
     let emailDatabase = ["francobaresi@mailinator.com", "giovannimuciaccia@gmail.com", "booleanduck@hotmail.it"];
 
 
+
+    emailDatabase.push(emailValue)
+
     let checkEmail = false;
 
     for (let i = 0; i < emailDatabase.length; i++) {
         if (emailDatabase[i] == emailValue) {
-            let checkEmail = true;
+
+            checkEmail = true;
             console.log(`${emailValue} è presente nella squadra, con posizione: ${i}`);
 
         } else {
-            console.log('Congratulazioni hai appena registrato la tua email!');
+            
         }
+
     }
 
-    if ( emailDatabase[i] != emailValue ) {
-        emailDatabase.push()
+    for (let i = 0; i < emailDatabase.length; i++) {
+
+    if (  checkEmail == true) {
+        document.getElementById('emailResult').innerHTML = `sei già registrato`;
+    } else {
+        document.getElementById('emailResult').innerHTML = `Benvenuto!`;
     }
+}
+
+    console.log(emailDatabase[i])
 }
 
 
