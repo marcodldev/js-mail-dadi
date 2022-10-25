@@ -6,39 +6,31 @@
 
 let email = document.getElementById("inputEmail");
 
+let emails = ["francobaresi@mailinator.com", "giovannimuciaccia@gmail.com", "booleanduck@hotmail.it"];
+
+let presenzaEmail = false;
+
 function invioDati() {
     let emailValue = email.value;
 
-    let emailDatabase = ["francobaresi@mailinator.com", "giovannimuciaccia@gmail.com", "booleanduck@hotmail.it"];
+    for (let i = 0; i < emails.length; i++) {
 
+        let data = emails[i];
 
-
-    emailDatabase.push(emailValue)
-
-    let checkEmail = false;
-
-    for (let i = 0; i < emailDatabase.length; i++) {
-        if (emailDatabase[i] == emailValue) {
-
-            checkEmail = true;
-            console.log(`${emailValue} è presente nella squadra, con posizione: ${i}`);
-
-        } else {
-            
+        if (  emailValue == data ) {
+            presenzaEmail = true;
+            console.log(`lo status della varibaile è: ${presenzaEmail}`);
         }
-
     }
 
-    for (let i = 0; i < emailDatabase.length; i++) {
 
-    if (  checkEmail == true) {
-        document.getElementById('emailResult').innerHTML = `sei già registrato`;
+    if (presenzaEmail == true) {
+        console.log("email presente");
     } else {
-        document.getElementById('emailResult').innerHTML = `Benvenuto!`;
+        console.log("iscriviti ora");
     }
-}
 
-    console.log(emailDatabase[i])
+    // console.log(emailDatabase[i])
 }
 
 
